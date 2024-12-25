@@ -44,7 +44,6 @@
   - action: "Execute "
     type: "SSH_COMMAND"
     commands:
-    - "pwd"
     - "bash ./start.sh"
     - ""
     targets:
