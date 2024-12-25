@@ -39,7 +39,6 @@
     - "npm -v"
     - "npm install"
     - "npm run build"
-    - "npm run start"
     targets:
     - "chatroom_ssh_user"
     run_as_script: true
