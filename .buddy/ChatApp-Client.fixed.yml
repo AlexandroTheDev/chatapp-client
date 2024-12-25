@@ -34,7 +34,6 @@
     - "chatroom_ssh_user"
   - action: "Execute ls"
     type: "SSH_COMMAND"
-    disabled: true
     commands:
     - "npm -v"
     - "npm install"
