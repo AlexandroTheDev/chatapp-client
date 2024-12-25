@@ -45,7 +45,7 @@
     type: "SSH_COMMAND"
     commands:
     - "pwd"
-    - "./start.sh"
+    - "bash ./start.sh"
     - ""
     targets:
     - "chatroom_ssh_user"
