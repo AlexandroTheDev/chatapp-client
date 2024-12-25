@@ -33,7 +33,8 @@
     type: "SSH_COMMAND"
     commands:
     - "npm -v"
-    - "ls"
+    - "npm run build"
+    - "npm run start"
     targets:
     - "chatroom_ssh_user"
     run_as_script: true
