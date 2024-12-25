@@ -29,3 +29,11 @@
     type: "TRANSFER"
     targets:
     - "chatroom_ssh_user"
+  - action: "Execute ls"
+    type: "SSH_COMMAND"
+    commands:
+    - "npm -v"
+    - "ls"
+    targets:
+    - "chatroom_ssh_user"
+    run_as_script: true
