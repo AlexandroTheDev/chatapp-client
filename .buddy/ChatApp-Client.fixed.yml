@@ -4,3 +4,13 @@
     refs:
     - "refs/heads/main"
   fail_on_prepare_env_warning: true
+  actions:
+  - action: "npm run build"
+    type: "BUILD"
+    docker_image_name: "library/node"
+    docker_image_tag: "22"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "npm run build"
+    shell: "BASH"
