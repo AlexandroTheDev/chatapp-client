@@ -33,6 +33,7 @@
     type: "SSH_COMMAND"
     commands:
     - "npm -v"
+    - "npm install"
     - "npm run build"
     - "npm run start"
     targets:
