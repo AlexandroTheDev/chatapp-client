@@ -29,7 +29,7 @@
     type: "TRANSFER"
     local_path: "/"
     deployment_excludes:
-    - "node_modules"
+    - "node_modules/"
     targets:
     - "chatroom_ssh_user"
   - action: "Execute ls"
