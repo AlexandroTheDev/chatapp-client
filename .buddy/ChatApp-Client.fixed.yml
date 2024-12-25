@@ -41,14 +41,3 @@
     targets:
     - "chatroom_ssh_user"
     run_as_script: true
-  - action: "Execute ls-1"
-    type: "SSH_COMMAND"
-    disabled: true
-    commands:
-    - "npm -v"
-    - "npm install"
-    - "npm run build"
-    - "npm run start"
-    targets:
-    - "chatroom_ssh_user"
-    run_as_script: true
