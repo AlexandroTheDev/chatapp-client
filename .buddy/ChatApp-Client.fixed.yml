@@ -43,7 +43,6 @@
     run_as_script: true
   - action: "Execute "
     type: "SSH_COMMAND"
-    working_directory: "/home/chatroom-ssh"
     commands:
     - "pwd"
     - "./start.sh"
