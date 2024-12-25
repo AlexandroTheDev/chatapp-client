@@ -1,41 +1,54 @@
 - pipeline: "ChatApp Client"
   events:
-  - type: "PUSH"
-    refs:
-    - "refs/heads/main"
+    - type: "PUSH"
+      refs:
+        - "refs/heads/main"
   fail_on_prepare_env_warning: true
   targets:
-  - type: "SSH"
-    id: "chatroom_ssh_user"
-    host: "62.72.59.195"
-    path: "/home/chatroom-ssh/htdocs/chatroom.playappify.com"
-    auth:
-      username: "chatroom-ssh"
-      password: "secure!UPr1di8md623Zak3J0k2CbbYGZCMraMD5/FCrprmei0=.CWNp4gujbuLGIFgJHHPfoA=="
-    tags:
-    - "Chatroom"
-    - "ssh-user"
+    - type: "SSH"
+      id: "chatroom_ssh_user"
+      host: "62.72.59.195"
+      path: "/home/chatroom-ssh/htdocs/chatroom.playappify.com"
+      auth:
+        username: "chatroom-ssh"
+        password: "secure!UPr1di8md623Zak3J0k2CbbYGZCMraMD5/FCrprmei0=.CWNp4gujbuLGIFgJHHPfoA=="
+      tags:
+        - "Chatroom"
+        - "ssh-user"
   actions:
-  - action: "npm run build"
-    type: "BUILD"
-    docker_image_name: "library/node"
-    docker_image_tag: "22"
-    execute_commands:
-    - "# yarn install"
-    - "npm install"
-    - "npm run build"
-    shell: "BASH"
-  - action: "Transfer files"
-    type: "TRANSFER"
-    targets:
-    - "chatroom_ssh_user"
-  - action: "Execute ls"
-    type: "SSH_COMMAND"
-    commands:
-    - "npm -v"
-    - "npm install"
-    - "npm run build"
-    - "npm run start"
-    targets:
-    - "chatroom_ssh_user"
-    run_as_script: true
+    - action: "npm run build"
+      type: "BUILD"
+      docker_image_name: "library/node"
+      docker_image_tag: "22"
+      execute_commands:
+        - "# yarn install"
+        - "npm install"
+        - "npm run build"
+      shell: "BASH"
+    - action: "Transfer files"
+      type: "TRANSFER"
+      local_path: "/"
+      targets:
+        - "chatroom_ssh_user"
+    - action: "Execute ls"
+      type: "SSH_COMMAND"
+      disabled: true
+      commands:
+        - "npm -v"
+        - "npm install"
+        - "npm run build"
+        - "npm run start"
+      targets:
+        - "chatroom_ssh_user"
+      run_as_script: true
+    - action: "Execute ls-1"
+      type: "SSH_COMMAND"
+      disabled: true
+      commands:
+        - "npm -v"
+        - "npm install"
+        - "npm run build"
+        - "npm run start"
+      targets:
+        - "chatroom_ssh_user"
+      run_as_script: true
