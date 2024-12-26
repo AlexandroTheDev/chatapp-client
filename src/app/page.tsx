@@ -55,7 +55,10 @@ export default function Home() {
         <SignIn setUser={setUser} />
       ) : (
         <div className="container mx-auto">
-          <div className=" h-[100vh] flex flex-col gap-2 px-4" id="wrapper">
+          <div
+            className="sm:min-h md:min-h-[100dvh] flex flex-col gap-2 px-4"
+            id="wrapper"
+          >
             <div id="header" className=" mt-5">
               <h1 className="text-2xl font-bold">Chatroom</h1>
             </div>
