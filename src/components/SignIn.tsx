@@ -19,19 +19,21 @@ import socket from "@/lib/socket";
 export default function SignIn({
   setUser,
 }: {
-  setUser: React.Dispatch<React.SetStateAction<null | string>>;
+  setUser: React.Dispatch<
+    React.SetStateAction<null | { id: string | undefined; name: string }>
+  >;
 }) {
   const [open, setOpen] = useState<boolean>(true);
   const [name, setName] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("TEST");
 
-    socket.emit("new_user", {
+    socket.emit("new_user", "general", {
+      id: socket.id,
       name,
     });
-    setUser(name);
+    setUser({ id: socket.id, name });
   };
 
   return (
